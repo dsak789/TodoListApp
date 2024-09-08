@@ -10,9 +10,13 @@ ShowTasks = (props) => {
                 <Text style={styles.allTasksLabel}>
                     All Tasks
                 </Text>
+                
+                <Text style={styles.taskdeleteLabel}>
+                    Tap to DELETE 
+                </Text>
             </View>
             <ScrollView>
-                {
+                {props.list !="" &&
                 props.list.map((item,index)=>(
                     <Pressable style={styles.goalItem} key={index} onPress={props.rmTask.bind(this,item.id)}>
                         <Text key={index}>{item.task}</Text>
@@ -55,5 +59,14 @@ const styles = StyleSheet.create({
         borderBottomWidth:2,
         color:'#0c00f9',
         fontWeight:'600',
+    },
+    taskdeleteLabel:{
+        flexDirection:'row',
+        textAlign:'center',
+        justifyContent:'center',
+        // borderBottomWidth:1,
+        color:'#f90000',
+        fontWeight:'400',
+        fontSize:12
     }
 })
